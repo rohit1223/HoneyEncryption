@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Honey Encryption</title>
+    <style>
+        body {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        button {
+            border: solid;
+            border-color: black;
+            border-radius: 10px;
+            padding: 10px;
+            background: steelblue;
+            color: white;
+            margin: 10px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        td {
+            color: steelblue;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Honey Encryption - {{ type }}</h1>
+    {% if type == "USER" %}
+        <button onclick="window.location.href='/detail/{{ type }}/v1'">VAULT 1</button>
+        <button onclick="window.location.href='/detail/{{ type }}/v2'">VAULT 2</button>
+        <button onclick="window.location.href='/auth/{{ type }}'">Search for card</button>
+        <table>
+        <thead>
+            <tr>
+                <th>Alias</th>
+                <th>Name</th>
+                <th>Number</th>
+                <th>Expiry Date</th>
+                <th>Type</th>
+                <th>Vault Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for card in cards %}
+            <tr>
+                <td>{{ card.alias }}</td>
+                <td>{{ card.name }}</td>
+                <td>{{ card.number }}</td>
+                <td>{{ card.expiry_date }}</td>
+                <td>{{ card.type }}</td>
+                <td>{{ card.vault_type }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <button target="_blank" onclick="window.location.href='http://localhost:57575/'">Launch Terminal</button>
+        <button onclick="window.location.href='/auth/{{ type }}'">Search for card</button>
+    {% endif %}
+</body>
+</html>

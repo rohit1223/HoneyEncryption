@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Honey Encryption</title>
+    <style>
+        body {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        input {
+            border: solid;
+            border-color: black;
+            padding: 10px;
+            background: steelblue;
+            color: white;
+            margin: 10px;
+        }
+        input.submit {
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Honey Encryption - {{ type }} | {{ vault_type }}</h1>
+    <form action="/submit/" method="post">
+        <!-- {% csrf_token %} -->
+        <label>Create an unique alias for your card</label><input type="text" id="cc_alias" name="cc_alias"><br/>
+        <label for="cc_name">Enter name on the card</label><input type="text" id="cc_name" name="cc_name"><br/>
+        <label for="cc_number">Enter 16 digit card number</label><input type="text" id="cc_number" name="cc_number"><br/>
+        <label for="cc_expiry_date">Enter date in fromat (dd/mm/yyyy)</label><input type="text" id="cc_expiry_date" name="cc_expiry_date"><br/>
+        <label for="password">Enter password</label><input type="password" id="password" name="password"><br/>
+        <input type="password" id="type" name="type" value="{{ type }}" hidden>
+        <input type="password" id="vault_type" name="vault_type" value="{{ vault_type }}" hidden>
+        <input class="submit" type="submit">
+    </form>
+</body>
+</html>

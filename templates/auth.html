@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Honey Encryption</title>
+    <style>
+        body {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        input {
+            border: solid;
+            border-color: black;
+            padding: 10px;
+            background: steelblue;
+            color: white;
+            margin: 10px;
+        }
+        input.submit {
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Honey Encryption - {{ type }} | {{ vault_type }}</h1>
+    <form action="/search/" method="post">
+        {% csrf_token %}
+        <label>Create an unique alias for your card</label><input type="text" id="search_alias" name="search_alias"><br/>
+        <label for="password">Enter password</label><input type="password" id="search_password" name="search_password"><br/>
+        <input type="password" id="type" name="type" value="{{ type }}" hidden>
+        <input class="submit" type="submit">
+    </form>
+</body>
+</html>

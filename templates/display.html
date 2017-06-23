@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Honey Encryption</title>
+    <style>
+        body {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        button {
+            border: solid;
+            border-color: black;
+            border-radius: 10px;
+            padding: 10px;
+            background: steelblue;
+            color: white;
+            margin: 10px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        td {
+            color: steelblue;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Honey Encryption - {{ type }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Alias</th>
+                <th>Name</th>
+                <th>Number</th>
+                <th>Expiry Date</th>
+                <th>Type</th>
+                <th>Vault Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ card.alias }}</td>
+                <td>{{ card.name }}</td>
+                <td>{{ card.number }}</td>
+                <td>{{ card.expiry_date }}</td>
+                <td>{{ card.type }}</td>
+                <td>{{ card.vault_type }}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
